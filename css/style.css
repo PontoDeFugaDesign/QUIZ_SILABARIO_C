@@ -18,10 +18,15 @@ body{
 } 
 
 .app{
-   /*TENTAR O RESPONSIVO AQUI AGORA*/
-   height: 600px;
-   max-width: 700px;
+   
+   /*height: 600px;*/
+   /*position: relative;  INSERIDO 26/04/2021*/
+   max-width: 700px; 
+   /*display: flex;  INSERIDO 26/04/2021*/
+   /*justify-content: space-between;  INSERIDO 26/04/2021*/
+   /*flex-wrap: wrap;  INSERIDO 26/04/2021 */
    margin: 60px auto;
+   backdrop-filter:blur(10px); /*INSERIDO 27-04-2021*/
    background-color: rgba(91, 128, 86, 0.5);
    padding: 10px 50px 50px 50px;
    border-radius: 50px;
@@ -53,8 +58,10 @@ body{
 }
 
 .app .quiz-box h1{
+  margin: 0;
+  padding: 0;    
   text-transform: uppercase;
-  font-size: 70px;
+  font-size: 8vw;
   font-weight: bold;
   -webkit-animation: question 1.5s ease alternate infinite;
   animation: question 1.5s ease alternate infinite;
@@ -114,11 +121,19 @@ body{
    width: 100%;
    display: block;
 }
-/*CAMPO DAS IMAGENS, TESTAR/TESTEI ESTE BLOCO, COM OS TUTORIAIS SALVOS*/
+/*BOTÕES DAS IMAGENS*/
 .app .option-box button{
-     flex-basis: calc(50% - 30px);
-     max-width:  calc(50% - 30px);
-     margin:10px; 
+     position: relative; /*ADICIONADO 27/04/2021*/
+     top: 10px;/*ADICIONADO 27/04/2021*/
+     left: 10px;/*ADICIONADO 27/04/2021*/
+     backdrop-filter: blur(20px);/*ADICIONADO 27/04/2021*/
+     flex-basis: calc(100% - 20px); /* MODIFICADO 27/04/2021, ERA flex-basis */
+     max-width:  calc(100% - 20px); /*MODIFICADO 27/04/2021, ERA max-width*/
+     z-index: 1; /*ADICIONADO 27/04/2021*/
+     display: flex; /*ADICIONADO 27/04/2021*/
+     justify-content: center; /*ADICIONADO 27/04/2021*/
+     align-items: center; /*ADICIONADO 27/04/2021*/
+     margin:10px;
      border:0;
      padding:0;
      border-radius:4px;
@@ -126,18 +141,23 @@ body{
      cursor: pointer;
      animation: button 1s ease;  
 }
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 700px){ /* SUBTRAI 700 - 8 = 692*/
+ 
   .app {
+  	position: relative;
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+}
+/*
+@media screen and (max-width: 350px){/* SUBTRAI 700 - 8 = 692*/
+ /* .app {
     width:40%;
     
-  }
-}
-@media screen and (max-width: 600px){
-  .app {
-    width:90%;
-    
-  }
-}
+  }*/
+
 /*CAMPO DAS IMAGENS, TESTAR/TESTEI ESTE BLOCO, COM OS TUTORIAIS SALVOS*/
 @keyframes button{
   0%{transform: scale(0.5);opacity:0 }
